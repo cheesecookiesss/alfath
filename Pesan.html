@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Pesan.css">
+    <title>Pentagram</title>
+</head>
+<body>
+    <header>
+        <div class="logo">Pentagram</div>
+        <nav>
+            <ul>
+                <li><a href="C:\Users\LENOVO\Documents\New\NewEssay.html">Beranda</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="friends">
+            <h2>Daftar Teman</h2>
+            <div class="friend-list">
+                <div class="friend-item" data-friend-id="1">
+                    <img src="c:\Users\LENOVO\Pictures\WA\WhatsApp Image 2024-11-01 at 21.43.35_4ab1e998.jpg" alt="Teman 1" class="friend-pic">
+                    <h3>Fadhil</h3>
+                    <textarea class="messageContent" placeholder="Tulis pesan Anda di sini..."></textarea>
+                    <button class="sendMessageButton">Kirim Pesan</button>
+                </div>
+                <div class="friend-item" data-friend-id="2">
+                    <img src="c:\Users\LENOVO\Pictures\WA\WhatsApp Image 2024-11-01 at 21.30.25_2084948a.jpg" alt="Teman 2" class="friend-pic">
+                    <h3>Desiy</h3>
+                    <textarea class="messageContent" placeholder="Tulis pesan Anda di sini..."></textarea>
+                    <button class="sendMessageButton">Kirim Pesan</button>
+                </div>
+                <div class="friend-item" data-friend-id="3">
+                    <img src="c:\Users\LENOVO\Pictures\WA\IMG-20241018-WA0023.jpg" alt="Teman 3" class="friend-pic">
+                    <h3>Dinah</h3>
+                    <textarea class="messageContent" placeholder="Tulis pesan Anda di sini..."></textarea>
+                    <button class="sendMessageButton">Kirim Pesan</button>
+                </div>
+                <div class="friend-item" data-friend-id="4">
+                    <img src="c:\Users\LENOVO\Pictures\WA\fotoJHM.png" alt="Teman 4" class="friend-pic">
+                    <h3>Puguh</h3>
+                    <textarea class="messageContent" placeholder="Tulis pesan Anda di sini..."></textarea>
+                    <button class="sendMessageButton">Kirim Pesan</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="message-history">
+            <h2>Riwayat Pesan</h2>
+            <div id="messageList"></div>
+        </section>
+
+        <section class="gallery">
+            <h2>Galeri Pertemanan</h2>
+            <div class="grid">
+                <div class="grid-item"><img src="c:\Users\LENOVO\Pictures\WA\WhatsApp Image 2024-11-02 at 00.26.58_b49c909e.jpg" alt="Postingan 1"></div>
+                <div class="grid-item"><img src="c:\Users\LENOVO\Pictures\WA\WhatsApp Image 2024-11-02 at 00.17.51_cebc517d.jpg" alt="Postingan 2"></div>
+                <div class="grid-item"><img src="c:\Users\LENOVO\Pictures\WA\WhatsApp Image 2024-11-02 at 00.40.57_619ac5b8.jpg" alt="Postingan 3"></div>
+                <div class="grid-item"><img src="c:\Users\LENOVO\Pictures\WA\WhatsApp Image 2024-11-02 at 00.19.13_79df1413.jpg" alt="Postingan 4"></div>
+                <div class="grid-item"><img src="c:\Users\LENOVO\Pictures\WA\WhatsApp Image 2024-11-02 at 00.40.58_7d8abf14.jpg" alt="Postingan 5"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Media Sosial. Semua hak dilindungi.</p>
+    </footer>
+
+    <script>
+        // Menangani pengiriman pesan untuk setiap teman
+        document.querySelectorAll('.sendMessageButton').forEach(button => {
+            button.addEventListener('click', function() {
+ const friendName = this.parentElement.querySelector('h3').textContent;
+                const messageContent = this.parentElement.querySelector('.messageContent').value;
+
+                if (messageContent.trim() === '') {
+                    alert('Silakan masukkan pesan.');
+                    return;
+                }
+
+                // Menambahkan pesan ke riwayat pesan
+                const messageList = document.getElementById('messageList');
+                const newMessage = document.createElement('div');
+                newMessage.classList.add('message-item');
+                newMessage.textContent = `Kepada ${friendName}: ${messageContent}`;
+                messageList.appendChild(newMessage);
+
+                // Reset textarea
+                this.parentElement.querySelector('.messageContent').value = '';
+            });
+        });
+    </script>
+</body>
+</html>
